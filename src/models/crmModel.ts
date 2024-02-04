@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const schema: any = {
+    _id: { type: Schema.ObjectId, auto: true },
     firstName: {
         type: String,
         required: 'Enter a first name'
@@ -16,15 +17,7 @@ const schema: any = {
     },
     company: {
         type: String
-    },
-    phone: {
-        type: Number
-    },
-    created_date: {
-       type: Date,
-       default: Date.now 
     }
-
 }
 
 export const ContactSchema = new mongoose.Schema(schema);

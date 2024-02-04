@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { ContactSchema } from "../models/crmModel";
 import { Request, Response } from "express";
 
-const Contact = mongoose.model("Contact", ContactSchema);
+const Contact = mongoose.model("Contact", ContactSchema, 'contact');
 
 export const addNewContact = (req: Request, res: Response) => {
   let newContact = new Contact(req.body);
@@ -33,8 +33,9 @@ export const addNewContact = (req: Request, res: Response) => {
 
 export const getContacts = async (req, res) => {
     try {
+      console.log('test');
       const contact = await Contact.find({});
-  
+      console.log(contact);
       // Here we get the data. Iterate through the actual data. We iterate through contact, so we have an array that is going to come back from our server, an array of contacts.
       for (let item of contact) {
         console.log(item); // for each item in the contact, console.log the item.
