@@ -31,7 +31,7 @@ export const addNewContact = (req: Request, res: Response) => {
   });
   }; */
 
-export const getContacts = async (req, res) => {
+/* export const getContacts = async (req, res) => {
     try {
       console.log('test');
       const contact = await Contact.find({});
@@ -52,6 +52,22 @@ export const getContacts = async (req, res) => {
       console.error(err);
       res.status(500).send('Internal Server Error');
     }
+  }; */
+
+  export const getContacts = (req, res) => {
+    Contact.find({})
+      .then(contact => {
+        res.json(contact);
+        for (let item of contact) {
+          console.log(item);
+        }
+        for (let itemPos in contact) {
+          console.log(itemPos);
+        }
+      })
+      .catch(err => {
+        res.status(500).send(err);
+      });
   };
 
 

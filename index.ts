@@ -14,6 +14,8 @@ const dataConnection = (user: string, pass: string): string => {
   return `mongodb+srv://${user}:${pass}@cluster0.mdn9fms.mongodb.net/?retryWrites=true&w=majority`;
 };
 
+//mongodb+srv://${user}:${pass}@cluster0.mdn9fms.mongodb.net/?tls=true
+
 let uri = dataConnection(Settings.mongoUser, Settings.mongoPass);
 
 // mongoose connection
